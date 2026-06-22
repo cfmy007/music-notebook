@@ -607,3 +607,42 @@ Map<String, dynamic> _$PolygonToolToJson(PolygonTool instance) =>
       'property': instance.property.toJson(),
       'type': instance.$type,
     };
+
+TunerTool _$TunerToolFromJson(Map json) => TunerTool(
+  name: json['name'] as String? ?? '',
+  displayIcon: json['displayIcon'] as String? ?? '',
+  id: const IdJsonConverter().fromJson(json['id'] as String?),
+  a4Frequency: (json['a4Frequency'] as num?)?.toDouble() ?? 440.0,
+  selectedInstrument: (json['selectedInstrument'] as num?)?.toInt() ?? 0,
+  $type: json['type'] as String?,
+);
+
+Map<String, dynamic> _$TunerToolToJson(TunerTool instance) => <String, dynamic>{
+  'name': instance.name,
+  'displayIcon': instance.displayIcon,
+  'id': const IdJsonConverter().toJson(instance.id),
+  'a4Frequency': instance.a4Frequency,
+  'selectedInstrument': instance.selectedInstrument,
+  'type': instance.$type,
+};
+
+MetronomeTool _$MetronomeToolFromJson(Map json) => MetronomeTool(
+  name: json['name'] as String? ?? '',
+  displayIcon: json['displayIcon'] as String? ?? '',
+  id: const IdJsonConverter().fromJson(json['id'] as String?),
+  bpm: (json['bpm'] as num?)?.toInt() ?? 120,
+  timeSignature: json['timeSignature'] as String? ?? '4/4',
+  sound: json['sound'] as String? ?? 'beep',
+  $type: json['type'] as String?,
+);
+
+Map<String, dynamic> _$MetronomeToolToJson(MetronomeTool instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'displayIcon': instance.displayIcon,
+      'id': const IdJsonConverter().toJson(instance.id),
+      'bpm': instance.bpm,
+      'timeSignature': instance.timeSignature,
+      'sound': instance.sound,
+      'type': instance.$type,
+    };

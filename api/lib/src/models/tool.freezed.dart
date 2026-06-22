@@ -111,6 +111,14 @@ Tool _$ToolFromJson(
           return PolygonTool.fromJson(
             json
           );
+                case 'tuner':
+          return TunerTool.fromJson(
+            json
+          );
+                case 'metronome':
+          return MetronomeTool.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(
@@ -2034,6 +2042,156 @@ as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_null
 as String?,zoomDependent: null == zoomDependent ? _self.zoomDependent : zoomDependent // ignore: cast_nullable_to_non_nullable
 as bool,property: freezed == property ? _self.property : property // ignore: cast_nullable_to_non_nullable
 as PolygonProperty,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class TunerTool extends Tool {
+   TunerTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.a4Frequency = 440.0, this.selectedInstrument = 0, final  String? $type}): $type = $type ?? 'tuner',super._();
+  factory TunerTool.fromJson(Map<String, dynamic> json) => _$TunerToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  double a4Frequency;
+@JsonKey() final  int selectedInstrument;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$TunerToolCopyWith<TunerTool> get copyWith => _$TunerToolCopyWithImpl<TunerTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$TunerToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+  return 'Tool.tuner(name: $name, displayIcon: $displayIcon, id: $id, a4Frequency: $a4Frequency, selectedInstrument: $selectedInstrument)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $TunerToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $TunerToolCopyWith(TunerTool value, $Res Function(TunerTool) _then) = _$TunerToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, double a4Frequency, int selectedInstrument
+});
+
+
+
+
+}
+/// @nodoc
+class _$TunerToolCopyWithImpl<$Res>
+    implements $TunerToolCopyWith<$Res> {
+  _$TunerToolCopyWithImpl(this._self, this._then);
+
+  final TunerTool _self;
+  final $Res Function(TunerTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? a4Frequency = null,Object? selectedInstrument = null,}) {
+  return _then(TunerTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,a4Frequency: null == a4Frequency ? _self.a4Frequency : a4Frequency // ignore: cast_nullable_to_non_nullable
+as double,selectedInstrument: null == selectedInstrument ? _self.selectedInstrument : selectedInstrument // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class MetronomeTool extends Tool {
+   MetronomeTool({this.name = '', this.displayIcon = '', @IdJsonConverter() this.id, this.bpm = 120, this.timeSignature = '4/4', this.sound = 'beep', final  String? $type}): $type = $type ?? 'metronome',super._();
+  factory MetronomeTool.fromJson(Map<String, dynamic> json) => _$MetronomeToolFromJson(json);
+
+@override@JsonKey() final  String name;
+@override@JsonKey() final  String displayIcon;
+@override@IdJsonConverter() final  String? id;
+@JsonKey() final  int bpm;
+@JsonKey() final  String timeSignature;
+@JsonKey() final  String sound;
+
+@JsonKey(name: 'type')
+final String $type;
+
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MetronomeToolCopyWith<MetronomeTool> get copyWith => _$MetronomeToolCopyWithImpl<MetronomeTool>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$MetronomeToolToJson(this, );
+}
+
+
+
+@override
+String toString() {
+  return 'Tool.metronome(name: $name, displayIcon: $displayIcon, id: $id, bpm: $bpm, timeSignature: $timeSignature, sound: $sound)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MetronomeToolCopyWith<$Res> implements $ToolCopyWith<$Res> {
+  factory $MetronomeToolCopyWith(MetronomeTool value, $Res Function(MetronomeTool) _then) = _$MetronomeToolCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String displayIcon,@IdJsonConverter() String? id, int bpm, String timeSignature, String sound
+});
+
+
+
+
+}
+/// @nodoc
+class _$MetronomeToolCopyWithImpl<$Res>
+    implements $MetronomeToolCopyWith<$Res> {
+  _$MetronomeToolCopyWithImpl(this._self, this._then);
+
+  final MetronomeTool _self;
+  final $Res Function(MetronomeTool) _then;
+
+/// Create a copy of Tool
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? displayIcon = null,Object? id = freezed,Object? bpm = null,Object? timeSignature = null,Object? sound = null,}) {
+  return _then(MetronomeTool(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,displayIcon: null == displayIcon ? _self.displayIcon : displayIcon // ignore: cast_nullable_to_non_nullable
+as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,bpm: null == bpm ? _self.bpm : bpm // ignore: cast_nullable_to_non_nullable
+as int,timeSignature: null == timeSignature ? _self.timeSignature : timeSignature // ignore: cast_nullable_to_non_nullable
+as String,sound: null == sound ? _self.sound : sound // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

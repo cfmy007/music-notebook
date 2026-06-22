@@ -273,6 +273,23 @@ sealed class Tool extends PackAsset with _$Tool {
     @Default(PolygonProperty()) PolygonProperty property,
   }) = PolygonTool;
 
+  factory Tool.tuner({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(440.0) double a4Frequency,
+    @Default(0) int selectedInstrument,
+  }) = TunerTool;
+
+  factory Tool.metronome({
+    @Default('') String name,
+    @Default('') String displayIcon,
+    @IdJsonConverter() String? id,
+    @Default(120) int bpm,
+    @Default('4/4') String timeSignature,
+    @Default('beep') String sound,
+  }) = MetronomeTool;
+
   factory Tool.fromJson(Map<String, dynamic> json) => _$ToolFromJson(json);
 
   ToolCategory get category => switch (this) {
@@ -300,5 +317,7 @@ sealed class Tool extends PackAsset with _$Tool {
     EyeDropperTool() => ToolCategory.action,
     BarcodeTool() => ToolCategory.surface,
     PolygonTool() => ToolCategory.surface,
+    TunerTool() => ToolCategory.action,
+    MetronomeTool() => ToolCategory.action,
   };
 }
