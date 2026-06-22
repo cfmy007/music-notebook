@@ -234,22 +234,20 @@ class LabelHandler extends Handler<LabelTool>
     final viewId = View.of(context.buildContext).viewId;
     _composing = TextRange.empty;
     if (!(_connection?.attached ?? false)) {
-      _connection =
-          TextInput.attach(
-              this,
-              TextInputConfiguration(
-                viewId: viewId,
-                inputType: TextInputType.multiline,
-                obscureText: false,
-                autocorrect: true,
-                inputAction: TextInputAction.newline,
-                keyboardAppearance: theme.brightness,
-                enableDeltaModel: false,
-                enableSuggestions: true,
-                enableInteractiveSelection: true,
-              ),
-            )
-            ..setEditingState(currentTextEditingValue);
+      _connection = TextInput.attach(
+        this,
+        TextInputConfiguration(
+          viewId: viewId,
+          inputType: TextInputType.multiline,
+          obscureText: false,
+          autocorrect: true,
+          inputAction: TextInputAction.newline,
+          keyboardAppearance: theme.brightness,
+          enableDeltaModel: false,
+          enableSuggestions: true,
+          enableInteractiveSelection: true,
+        ),
+      )..setEditingState(currentTextEditingValue);
     } else {
       _updateEditingState();
     }
