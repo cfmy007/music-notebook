@@ -1,0 +1,62 @@
+---
+title: Linwood Butterfly
+description: 🎨 Leistungsstarke, minimalistische, plattformübergreifende Open-Source-Notiz-App 🎨
+template: splash
+hero:
+  tagline: 🎨 Leistungsstarke, minimalistische, plattformübergreifende Open-Source-Notiz-App 🎨
+  image:
+    file: /public/img/logo.svg
+  actions:
+    - text: Herunterladen
+      link: /downloads/
+      icon: download
+      variant: primary
+    - text: Erste Schritte
+      link: /docs/v2/intro/
+      icon: document
+    - text: Web-App
+      link: https://web.butterfly.linwood.dev
+      icon: rocket
+    - text: Blog
+      link: https://linwood.dev/butterfly
+      icon: external
+      variant: secondary
+---
+
+import { LinkCard, Card, CardGrid } from '@astrojs/starlight/components';
+
+## Prinzipien
+
+<CardGrid stagger>
+  <Card title="Plattformübergreifend" icon="laptop">
+    Sie können die App auf Ihrem Smartphone, Tablet, Laptop oder Desktop verwenden. Die App ist für Linux, Android und Windows verfügbar. Sie können die App auch im Web verwenden.
+  </Card>
+  <Card title="Einfach und intuitiv" icon="puzzle">
+    Jedes Werkzeug ist am richtigen Platz. Öffnen Sie die App und starte. Ändern Sie Ihre Werkzeuge, indem Sie darauf klicken.
+  </Card>
+  <Card title="Anpassbar" icon="pencil">
+    Passen Sie alles an Ihre Bedürfnisse an. Wählen Sie Ihre eigene Farbe, erstellen Sie eine Palette und fügen Sie Ihre Seiten dem Papier hinzu. Das Papier hat eine unendliche Größe, perfekt für Ihre Ideen und Noten.
+  </Card>
+  <Card title="Wählen Sie aus, wo Ihre Daten gespeichert sind" icon="open-book">
+    Sie können wählen, ob Ihre Daten lokal oder in Ihrer bevorzugten Cloud (WebDAV) gespeichert werden. Alternativ können Sie Ihre Daten in eine Datei exportieren und später wieder importieren.
+  </Card>
+</CardGrid>
+
+## Funktionen
+
+<div class="dark:sl-hidden">
+![Hauptansicht](@assets/img/main.png)
+</div>
+
+<div class="light:sl-hidden">
+![Hauptansicht](@assets/img/main_dark.png)
+</div>
+
+<CardGrid stagger>
+  <Card title="Lassen Sie Ihre Ideen auf einer unendlichen Leinwand fließen" />
+  <Card title="Nutzen Sie Ihren Stift, Markdown oder Rich Text, damit Ihre Ideen fließen können" />
+  <Card title="Laden Sie PDF-, SVG-, PNG- und weitere Dateien in Ihre Notizen oder nimm Bilder mit der Kamera auf" />
+  <Card title="Strukturieren Sie Ihre Notizen mit Bereichen und Wegpunkten oder verwende mehrere Seiten" />
+</CardGrid>
+
+<LinkCard title="Heute herunterladen" href="/downloads/" />
