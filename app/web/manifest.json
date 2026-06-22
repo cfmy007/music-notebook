@@ -6,7 +6,7 @@
   "display": "standalone",
   "background_color": "#18191a",
   "theme_color": "#F2B138",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "prefer_related_applications": false,
   "file_handlers": [
     { 

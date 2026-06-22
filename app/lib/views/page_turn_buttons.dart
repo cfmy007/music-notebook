@@ -12,19 +12,35 @@ class PageTurnButtons extends StatelessWidget {
     return BlocBuilder<DocumentBloc, DocumentState>(
       builder: (context, state) {
         if (state is! DocumentLoadSuccess) return const SizedBox.shrink();
-        return Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _buildBtn(context, state, PhosphorIconsLight.caretLeft, -1),
-                const SizedBox(width: 8),
-                _buildBtn(context, state, PhosphorIconsLight.caretRight, 1),
-              ],
+        return Stack(
+          children: [
+            Positioned(
+              left: 8,
+              top: 0,
+              bottom: 0,
+              child: Center(
+                child: _buildBtn(
+                  context,
+                  state,
+                  PhosphorIconsLight.caretLeft,
+                  -1,
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              right: 8,
+              top: 0,
+              bottom: 0,
+              child: Center(
+                child: _buildBtn(
+                  context,
+                  state,
+                  PhosphorIconsLight.caretRight,
+                  1,
+                ),
+              ),
+            ),
+          ],
         );
       },
     );
@@ -39,16 +55,16 @@ class PageTurnButtons extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         onTap: () => _turn(context, s, delta),
         child: Container(
-          width: 40,
-          height: 40,
+          width: 48,
+          height: 48,
           decoration: BoxDecoration(
             color: Colors.black38,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(24),
           ),
-          child: Icon(icon, color: Colors.white, size: 24),
+          child: Icon(icon, color: Colors.white, size: 28),
         ),
       ),
     );
