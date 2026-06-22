@@ -17,22 +17,25 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: app
     steps:
       - uses: actions/checkout@v4
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version-file: app/pubspec.yaml
+          flutter-version: '3.41.6'
           channel: 'stable'
           cache: true
 
-      - name: Install dependencies
+      - name: Install api dependencies
+        working-directory: api
+        run: flutter pub get
+
+      - name: Install app dependencies
+        working-directory: app
         run: flutter pub get
 
       - name: Build web
+        working-directory: app
         run: flutter build web --release --base-href /music-notebook/
 
       - name: Upload artifact
