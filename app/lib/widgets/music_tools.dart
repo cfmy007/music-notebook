@@ -37,6 +37,11 @@ class _TunerDialogState extends State<TunerDialog> {
   web.AudioContext? _ctx;
   web.AnalyserNode? _an;
   web.MediaStream? _stream;
+  DateTime? _lastDetected;
+  String _lastNote = '--', _lastOct = '', _lastHz = '';
+  double _lastCents = 0;
+
+  static const Duration _holdDuration = Duration(milliseconds: 800);
 
   @override
   void dispose() {
@@ -98,7 +103,18 @@ class _TunerDialogState extends State<TunerDialog> {
       final sr = _ctx!.sampleRate.toDouble();
       final f = _pitch(dartArr, len, sr);
       if (f < 0) {
-        setState(() => note = '--');
+        // 没有检测到音高：如果在保持时间内，保持显示上一个音符
+        if (_lastDetected != null &&
+            DateTime.now().difference(_lastDetected!) < _holdDuration) {
+          setState(() {
+            note = _lastNote;
+            oct = _lastOct;
+            hz = _lastHz;
+            cents = _lastCents;
+          });
+        } else {
+          setState(() => note = '--');
+        }
         return;
       }
       final s = 12 * (log(f / a4) / ln2);
@@ -108,12 +124,22 @@ class _TunerDialogState extends State<TunerDialog> {
       var ni = (9 + cl) % 12;
       if (ni < 0) ni += 12;
       final oc = ((cl + 9) / 12).floor() + 4;
+      // 检测到新音高：更新显示并记录时间
+      final newNote = nn[ni];
+      final newOct = '$oc';
+      final newHz = f.toStringAsFixed(1);
+      final newCents = c;
       setState(() {
-        note = nn[ni];
-        oct = '$oc';
-        hz = f.toStringAsFixed(1);
-        cents = c;
+        note = newNote;
+        oct = newOct;
+        hz = newHz;
+        cents = newCents;
       });
+      _lastDetected = DateTime.now();
+      _lastNote = newNote;
+      _lastOct = newOct;
+      _lastHz = newHz;
+      _lastCents = newCents;
     } catch (_) {}
   }
 
