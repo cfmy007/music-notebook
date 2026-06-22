@@ -57,6 +57,7 @@ import '../views/toolbar/components.dart';
 import '../views/toolbar/label.dart';
 import '../views/toolbar/presentation/toolbar.dart';
 import '../widgets/context_menu.dart';
+import '../widgets/music_tools.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 
 part 'mixins.dart';
@@ -85,6 +86,8 @@ part 'spacer.dart';
 part 'stamp.dart';
 part 'texture.dart';
 part 'undo.dart';
+part 'tuner.dart';
+part 'metronome.dart';
 
 @immutable
 class EventContext {
@@ -308,6 +311,8 @@ abstract class Handler<T> {
           RulerTool() => RulerHandler(tool),
           BarcodeTool() => BarcodeHandler(tool),
           PolygonTool() => PolygonHandler(tool),
+          TunerTool() => TunerHandler(tool),
+          MetronomeTool() => MetronomeHandler(tool),
         }
         as Handler<T>;
   }

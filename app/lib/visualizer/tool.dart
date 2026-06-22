@@ -114,6 +114,8 @@ extension ToolVisualizer on Tool {
       RulerTool() => loc.ruler,
       BarcodeTool() => loc.barcode,
       PolygonTool() => loc.polygon,
+      TunerTool() => '调音器',
+      MetronomeTool() => '节拍器',
     };
   }
 
@@ -167,6 +169,8 @@ extension ToolVisualizer on Tool {
     RulerTool() => PhosphorIcons.ruler,
     BarcodeTool tool => tool.barcodeType.icon,
     PolygonTool() => PhosphorIcons.polygon,
+    TunerTool() => PhosphorIcons.musicNote,
+    MetronomeTool() => PhosphorIcons.metronome,
   };
 
   List<String> get help {
@@ -198,6 +202,8 @@ extension ToolVisualizer on Tool {
       RulerTool() => 'ruler',
       BarcodeTool() => 'barcode',
       PolygonTool() => 'polygon',
+      TunerTool() => null,
+      MetronomeTool() => null,
     };
     if (page == null) return [];
     return ['tools', page];
@@ -212,6 +218,8 @@ extension ToolVisualizer on Tool {
       ExportTool() => true,
       CollectionTool() => true,
       EyeDropperTool() => true,
+      TunerTool() => true,
+      MetronomeTool() => true,
       _ => false,
     };
   }

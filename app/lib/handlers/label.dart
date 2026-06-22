@@ -249,16 +249,7 @@ class LabelHandler extends Handler<LabelTool>
                 enableInteractiveSelection: true,
               ),
             )
-            ..setEditingState(currentTextEditingValue)
-            ..updateStyle(
-              TextInputStyle(
-                fontFamily: style.fontFamily,
-                fontSize: style.fontSize! * pixelRatio,
-                fontWeight: style.fontWeight,
-                textDirection: TextDirection.ltr,
-                textAlign: TextAlign.left,
-              ),
-            );
+            ..setEditingState(currentTextEditingValue);
     } else {
       _updateEditingState();
     }

@@ -114,7 +114,6 @@ class _NavigatorViewState extends State<NavigatorView>
                   SizeTransition(
                     sizeFactor: _animation,
                     axis: Axis.horizontal,
-                    alignment: Alignment.centerLeft,
                     child: AnimatedBuilder(
                       animation: _animation,
                       child: SizedBox(

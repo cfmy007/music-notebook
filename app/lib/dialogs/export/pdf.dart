@@ -342,7 +342,7 @@ class _PdfExportDialogState extends State<PdfExportDialog> {
     return ReorderableListView.builder(
       buildDefaultDragHandles: false,
       itemCount: _areas.length,
-      onReorderItem: (oldIndex, newIndex) {
+      onReorder: (oldIndex, newIndex) {
         setState(() {
           final item = _areas.removeAt(oldIndex);
           _areas.insert(newIndex, item);
