@@ -20,6 +20,7 @@ import 'package:butterfly/views/toolbar/view.dart';
 import 'package:butterfly/views/edit.dart';
 import 'package:butterfly/views/error.dart';
 import 'package:butterfly/views/property.dart';
+import 'package:butterfly/views/page_turn_buttons.dart';
 import 'package:butterfly_api/butterfly_api.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -826,6 +827,7 @@ class _MainBody extends StatelessWidget {
                   },
                   child: PropertyView(position: settings.propertyPosition),
                 ),
+                const PageTurnButtons(),
               ],
             ),
           ),
