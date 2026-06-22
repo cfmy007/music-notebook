@@ -44,6 +44,8 @@ class DocumentDefaults {
             UndoTool(id: createUniqueId()),
             RedoTool(id: createUniqueId()),
             HandTool(id: createUniqueId()),
+            TunerTool(id: createUniqueId()),
+            MetronomeTool(id: createUniqueId()),
           ]
           .map(
             (e) =>
@@ -75,6 +77,8 @@ class DocumentDefaults {
     Tool.fullScreen(),
     Tool.collection(),
     Tool.eyeDropper(),
+    Tool.tuner(),
+    Tool.metronome(),
     Tool.ruler(),
     Tool.grid(),
     ...BarcodeType.values.map((e) => Tool.barcode(barcodeType: e)),
